@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet id="1" author="sharafutdinov">
+        <createTable tableName="PRODUCT">
+            <column name="PRODUCT_ID" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NAME" type="varchar(100)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+            <column name="PRICE" type="decimal"/>
+            <column name="RATING" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="sharafutdinov">
+        <insert tableName="PRODUCT">
+            <column name="NAME">Product 1</column>
+            <column name="DESCRIPTION">Product 1</column>
+            <column name="PRICE">222.2</column>
+            <column name="RATING">2</column>
+        </insert>
+        <insert tableName="PRODUCT">
+            <column name="NAME">Product 2</column>
+            <column name="DESCRIPTION">Product 2</column>
+            <column name="PRICE">333.3</column>
+            <column name="RATING">3</column>
+        </insert>
+        <insert tableName="PRODUCT">
+            <column name="NAME">Product 3</column>
+            <column name="DESCRIPTION">Product 3</column>
+            <column name="PRICE">444.4</column>
+            <column name="RATING">4</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
