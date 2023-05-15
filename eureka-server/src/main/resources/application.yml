@@ -4,3 +4,6 @@ eureka:
     fetch-registry: false
 server:
   port: 8761
+security:
+  username: admin
+  password: '{bcrypt}$2a$12$U24X41VlSQVve6vyds2Cs.ApnnDnbsVxrg2OYJA6cO3M5c.FLoA.K'

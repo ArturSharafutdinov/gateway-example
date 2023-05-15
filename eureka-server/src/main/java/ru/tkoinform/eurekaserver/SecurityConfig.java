@@ -1,5 +1,6 @@
 package ru.tkoinform.eurekaserver;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +14,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Value("${security.username}")
+    private String username;
+
+    @Value("${security.password}")
+    private String password;
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
@@ -27,8 +36,8 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         UserDetails user =
                 User.builder()
-                        .username("admin")
-                        .password("{bcrypt}$2a$12$U24X41VlSQVve6vyds2Cs.ApnnDnbsVxrg2OYJA6cO3M5c.FLoA.K")
+                        .username(username)
+                        .password(password)
                         .roles("ADMIN")
                         .build();
 
